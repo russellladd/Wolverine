@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		461733B71990A39200408DFE /* Wolverine.h in Headers */ = {isa = PBXBuildFile; fileRef = 461733B61990A39200408DFE /* Wolverine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		461733C11990A39200408DFE /* WolverineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461733C01990A39200408DFE /* WolverineTests.swift */; };
+		461733CB1990A3A900408DFE /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461733CA1990A3A900408DFE /* Token.swift */; };
+		461733CC1990A3FF00408DFE /* Wolverine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 461733B11990A39200408DFE /* Wolverine.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,7 @@
 		461733BC1990A39200408DFE /* WolverineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WolverineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		461733BF1990A39200408DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		461733C01990A39200408DFE /* WolverineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WolverineTests.swift; sourceTree = "<group>"; };
+		461733CA1990A3A900408DFE /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461733CC1990A3FF00408DFE /* Wolverine.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				461733B61990A39200408DFE /* Wolverine.h */,
+				461733CA1990A3A900408DFE /* Token.swift */,
 				461733B41990A39200408DFE /* Supporting Files */,
 			);
 			path = Wolverine;
@@ -196,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				461733CB1990A3A900408DFE /* Token.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +304,7 @@
 		461733C51990A39200408DFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -307,12 +314,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		461733C61990A39200408DFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

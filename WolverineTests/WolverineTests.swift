@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 GRL5. All rights reserved.
 //
 
-import UIKit
+import Wolverine
 import XCTest
 
-class WolverineTests: XCTestCase {
+class MAPITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -33,4 +33,26 @@ class WolverineTests: XCTestCase {
         }
     }
     
+    func testInit() {
+        
+        let manager = TokenManager(consumerKey: "Wijw6wNYqffL0_ZnLOW9HemfEf8a", consumerSecret: "hjUuNq2CqsjchshuVsGnJs5Kenca")
+        
+        XCTAssertEqual(manager.combinedConsumerKeyAndSecret, "V2lqdzZ3TllxZmZMMF9abkxPVzlIZW1mRWY4YTpoalV1TnEyQ3FzamNoc2h1VnNHbkpzNUtlbmNh", "Base64 encode works!")
+    }
+    
+    func testFetchToken() {
+        
+        let expectation = expectationWithDescription("Fetch token")
+        
+        let manager = TokenManager(consumerKey: "Wijw6wNYqffL0_ZnLOW9HemfEf8a", consumerSecret: "hjUuNq2CqsjchshuVsGnJs5Kenca")
+        
+        manager.fetchToken {
+            
+            expectation.fulfill()
+            
+            XCTAssert(manager.token != nil, "Token should not be nil")
+        }
+        
+        waitForExpectationsWithTimeout(10.0, nil)
+    }
 }
