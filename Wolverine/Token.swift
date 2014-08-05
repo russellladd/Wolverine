@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 let baseURL = "https://api-gw.it.umich.edu"
 
