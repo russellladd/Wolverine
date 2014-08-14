@@ -9,7 +9,7 @@
 import Wolverine
 import XCTest
 
-class MAPITests: XCTestCase {
+class WolverineTests: XCTestCase {
     
     override func setUp() {
         

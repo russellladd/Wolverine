@@ -14,7 +14,6 @@
 		46517D6B199AA9F300A7AAFD /* Wolverine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46517D6A199AA9F300A7AAFD /* Wolverine.swift */; };
 		465EBC411991AD510012BD98 /* People.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465EBC401991AD510012BD98 /* People.swift */; };
 		465EBC431991AFC20012BD98 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465EBC421991AFC20012BD98 /* Service.swift */; };
-		46F958A2199191D8009510A4 /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46F958A1199191D8009510A4 /* TokenTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		46517D6A199AA9F300A7AAFD /* Wolverine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wolverine.swift; sourceTree = "<group>"; };
 		465EBC401991AD510012BD98 /* People.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = People.swift; sourceTree = "<group>"; };
 		465EBC421991AFC20012BD98 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
-		46F958A1199191D8009510A4 /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,6 @@
 			isa = PBXGroup;
 			children = (
 				461733C01990A39200408DFE /* WolverineTests.swift */,
-				46F958A1199191D8009510A4 /* TokenTests.swift */,
 				461733BE1990A39200408DFE /* Supporting Files */,
 			);
 			path = WolverineTests;
@@ -225,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				461733C11990A39200408DFE /* WolverineTests.swift in Sources */,
-				46F958A2199191D8009510A4 /* TokenTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
