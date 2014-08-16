@@ -33,14 +33,14 @@ public struct Person {
 
 public extension Service {
     
-    public func getPersonWithUniqname(uniqname: String, completionHandler: PersonResult -> ()) {
+    public func getPersonWithUniqname(uniqname: String, completionHandler: PersonResult -> ()) -> NSURLSessionDataTask {
         
-        get("Mcommunity/People/v1/people/\(uniqname)") { result in
+        return get("Mcommunity/People/v1/people/\(uniqname)") { result in
             
             switch result {
                 
             case .Success(let jsonObject):
-                completionHandler(Person.personWithJSONObject(jsonObject))
+                completionHandler(.Success(Person.personWithJSONObject(jsonObject)))
                 
             case .Error(let error):
                 completionHandler(.Error(error))

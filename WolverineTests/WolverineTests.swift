@@ -9,15 +9,17 @@
 import Wolverine
 import XCTest
 
-class WolverineTests: XCTestCase {
+class WolverineTests: XCTestCase, ServiceManagerDelegate {
     
-    override func setUp() {
+    func testServiceManager() {
         
-        super.setUp()
+        let serviceManager = ServiceManager(credential: Credential(key: "Wijw6wNYqffL0_ZnLOW9HemfEf8a", secret: "hjUuNq2CqsjchshuVsGnJs5Kenca"))
+        
+        
     }
     
-    override func tearDown() {
+    func serviceManager(serviceManager: ServiceManager, didChangeStatus status: ServiceManager.Status) {
         
-        super.tearDown()
+        
     }
 }

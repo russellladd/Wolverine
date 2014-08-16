@@ -133,7 +133,7 @@ public class Service {
         session.invalidateAndCancel()
     }
     
-    final func get(path: String, completionHandler: AnyObjectResult -> ()) {
+    final func get(path: String, completionHandler: AnyObjectResult -> ()) -> NSURLSessionDataTask {
         
         let url = "https://api-gw.it.umich.edu".stringByAppendingPathComponent(path)
         
@@ -156,5 +156,7 @@ public class Service {
         }
         
         task.resume()
+        
+        return task
     }
 }
