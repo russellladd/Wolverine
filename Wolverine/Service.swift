@@ -76,10 +76,10 @@ public class ServiceManager {
     
     private func scheduleTokenExpirationTimer(token: Token, ifNeeded: Bool) {
         
-        // WHAT IS GOING ON HERE
+        // TODO: Rewrite this with conditionally unwrapped optionals when the compiler is fixed
         if let application = UIApplication.sharedApplication() {
             
-            if !ifNeeded || application.applicationState == .Active {
+            if !ifNeeded || UIApplication.sharedApplication().applicationState == .Active {
                 
                 tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
             }
