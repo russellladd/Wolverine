@@ -20,7 +20,7 @@ public struct Credential {
         self.key = key
         self.secret = secret
         
-        self.authorization = "\(key):\(secret)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!.base64EncodedStringWithOptions(nil)
+        self.authorization = "Basic " + "\(key):\(secret)".dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!.base64EncodedStringWithOptions(nil)
     }
 }
 

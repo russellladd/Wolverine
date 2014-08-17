@@ -14,8 +14,10 @@ struct Token {
     let access: String
     let expirationDate: NSDate
     
+    // TODO: Fix workaround once UM fixed their token response
     var authorization: String {
-        return "\(type) \(access)"
+        return "Bearer \(access)"
+        //return "\(type) \(access)"
     }
     
     var timeIntervalUntilExpiration: NSTimeInterval {

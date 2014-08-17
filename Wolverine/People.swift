@@ -40,7 +40,7 @@ public extension Service {
             switch result {
                 
             case .Success(let jsonObject):
-                completionHandler(.Success(Person.personWithJSONObject(jsonObject)))
+                completionHandler(Person.personWithJSONObject(jsonObject))
                 
             case .Error(let error):
                 completionHandler(.Error(error))

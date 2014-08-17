@@ -22,7 +22,8 @@ public class ServiceManager {
         }
     }
     
-    public weak var delegate: ServiceManagerDelegate?
+    // TODO: Make this weak
+    public var delegate: ServiceManagerDelegate?
     
     private let tokenFetcher: TokenFetcher
     
@@ -75,9 +76,13 @@ public class ServiceManager {
     
     private func scheduleTokenExpirationTimer(token: Token, ifNeeded: Bool) {
         
-        if !ifNeeded || UIApplication.sharedApplication().applicationState == .Active {
+        // WHAT IS GOING ON HERE
+        if let application = UIApplication.sharedApplication() {
             
-            tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
+            if !ifNeeded || application.applicationState == .Active {
+                
+                tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
+            }
         }
     }
     
