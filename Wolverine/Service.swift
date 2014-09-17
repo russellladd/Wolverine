@@ -76,13 +76,9 @@ public class ServiceManager {
     
     private func scheduleTokenExpirationTimer(token: Token, ifNeeded: Bool) {
         
-        // TODO: Rewrite this with conditionally unwrapped optionals when the compiler is fixed
-        if let application = UIApplication.sharedApplication() {
+        if !ifNeeded || Optional.Some(UIApplication.sharedApplication())?.applicationState == .Active {
             
-            if !ifNeeded || UIApplication.sharedApplication().applicationState == .Active {
-                
-                tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
-            }
+            tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
         }
     }
     
@@ -138,7 +134,7 @@ public class Service {
         session.invalidateAndCancel()
     }
     
-    final func get(path: String, completionHandler: AnyObjectResult -> ()) -> NSURLSessionDataTask {
+    final func get(path: String, completionHandler: Result<AnyObject> -> ()) -> NSURLSessionDataTask {
         
         let url = "https://api-gw.it.umich.edu".stringByAppendingPathComponent(path)
         

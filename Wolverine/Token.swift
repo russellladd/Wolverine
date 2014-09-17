@@ -54,18 +54,18 @@ class TokenFetcher {
     }
     
     // Fetch a new token with a new token string. May be called at any time.
-    func fetchToken(completionHandler: TokenResult -> ()) {
+    func fetchToken(completionHandler: Result<Token> -> ()) {
         
         requestTokenWithHTTPBody("grant_type=client_credentials&scope=PRODUCTION", completionHandler: completionHandler)
     }
     
     // Refresh an existing token with a new expiration date. Will not have effect unless called after the current token expires.
-    func refreshToken(token: Token, completionHandler: TokenResult -> ()) {
+    func refreshToken(token: Token, completionHandler: Result<Token> -> ()) {
         
         requestTokenWithHTTPBody("grant_type=refresh_token&refresh_token=\(token.access)&scope=PRODUCTION", completionHandler: completionHandler)
     }
     
-    private func requestTokenWithHTTPBody(httpBody: String, completionHandler: TokenResult -> ()) {
+    private func requestTokenWithHTTPBody(httpBody: String, completionHandler: Result<Token> -> ()) {
         
         let requestDate = NSDate()
         

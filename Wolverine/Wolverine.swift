@@ -35,24 +35,17 @@ public enum ErrorCode: Int {
     }
 }
 
-/*
 public enum Result<T> {
     case Success(T)
     case Error(NSError)
 }
-*/
 
-enum TokenResult {
-    case Success(Token)
-    case Error(NSError)
-}
-
-enum AnyObjectResult {
-    case Success(AnyObject)
-    case Error(NSError)
-}
-
-public enum PersonResult {
-    case Success(Person)
-    case Error(NSError)
+extension String {
+    
+    func stringByStrippingCharactersInSet(characterSet: NSCharacterSet) -> String {
+        
+        return reduce(self, "") { initial, next in
+            return initial + (characterSet.characterIsMember(String(next).utf16[0]) ? String(next) : "")
+        }
+    }
 }

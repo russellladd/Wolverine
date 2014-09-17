@@ -48,7 +48,7 @@ class WolverineTests: XCTestCase {
                     
                     switch result {
                     case .Success(let person):
-                        XCTAssert(person != nil, "Person must not be nil")
+                        ()
                     case .Error(let error):
                         XCTFail("Service did not get person (Error: \(error))")
                     }
