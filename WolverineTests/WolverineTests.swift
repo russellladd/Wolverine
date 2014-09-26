@@ -19,7 +19,7 @@ class WolverineTests: XCTestCase {
             serviceManagerDidChangeStatusHandler?(status)
         }
     }
-
+    
     func testServiceManager() {
         
         let serviceManager = ServiceManager(credential: Credential(key: "Wijw6wNYqffL0_ZnLOW9HemfEf8a", secret: "hjUuNq2CqsjchshuVsGnJs5Kenca"))

@@ -19,7 +19,7 @@ public struct Person {
     public let workAddress: String?
     public let workPhone: String?
     
-    static func personWithJSONObject(jsonObject: AnyObject) -> Result<Person> {
+    static func personWithJSONObject(jsonObject: AnyObject) -> PersonResult {
         
         if let dictionary = jsonObject as? NSDictionary {
             
@@ -62,7 +62,7 @@ public struct Person {
         return .Error(ErrorCode.InvalidJSON.error)
     }
     
-    static func personArrayWithJSONObject(jsonObject: AnyObject) -> Result<[Result<Person>]> {
+    static func personArrayWithJSONObject(jsonObject: AnyObject) -> PersonArrayResult {
         
         if let dictionary = jsonObject as? NSDictionary {
             
@@ -80,7 +80,7 @@ public struct Person {
 
 public extension Service {
     
-    public func getPersonWithUniqname(uniqname: String, completionHandler: Result<Person> -> ()) -> NSURLSessionDataTask {
+    public func getPersonWithUniqname(uniqname: String, completionHandler: PersonResult -> ()) -> NSURLSessionDataTask {
         
         return get("Mcommunity/People/v1/people/\(uniqname)") { result in
             
@@ -95,9 +95,9 @@ public extension Service {
         }
     }
     
-    public func getPeopleForSearchString(searchString: String, completionHandler: Result<[Result<Person>]> -> ()) -> NSURLSessionDataTask {
+    public func getPeopleForSearchString(searchString: String, completionHandler: PersonArrayResult -> ()) -> NSURLSessionDataTask {
         
-        return get("Mcommunity/People/v1/people/compact/search/\(searchString)") { result in
+        return get("Mcommunity/People/v1/people/minisearch/\(searchString)") { result in
             
             switch result {
                 

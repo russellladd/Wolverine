@@ -35,8 +35,30 @@ public enum ErrorCode: Int {
     }
 }
 
+/*
 public enum Result<T> {
     case Success(T)
+    case Error(NSError)
+}
+*/
+
+enum TokenResult {
+    case Success(Token)
+    case Error(NSError)
+}
+
+enum AnyObjectResult {
+    case Success(AnyObject)
+    case Error(NSError)
+}
+
+public enum PersonResult {
+    case Success(Person)
+    case Error(NSError)
+}
+
+public enum PersonArrayResult {
+    case Success([PersonResult])
     case Error(NSError)
 }
 

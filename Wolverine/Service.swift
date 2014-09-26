@@ -11,7 +11,7 @@ import Foundation
 public class ServiceManager {
     
     public enum Status {
-        case NotConnected(NSError?)
+        case NotConnected(NSError)
         case Connecting
         case Connected(Service)
     }
@@ -76,7 +76,7 @@ public class ServiceManager {
     
     private func scheduleTokenExpirationTimer(token: Token, ifNeeded: Bool) {
         
-        if !ifNeeded || Optional.Some(UIApplication.sharedApplication())?.applicationState == .Active {
+        if !ifNeeded || UIApplication.sharedApplication().applicationState == .Active {
             
             tokenExpirationTimer = NSTimer.scheduledTimerWithTimeInterval(token.timeIntervalUntilExpiration, target: self, selector: "tokenExpirationTimerDidFire:", userInfo: nil, repeats: false)
         }
@@ -88,17 +88,17 @@ public class ServiceManager {
         tokenExpirationTimer = nil
     }
     
-    private func tokenExpirationTimerDidFire(timer: NSTimer!) {
+    @objc private func tokenExpirationTimerDidFire(timer: NSTimer!) {
         
         reconnect()
     }
     
-    private func applicationWillResignActive(notification: NSNotification!) {
+    @objc private func applicationWillResignActive(notification: NSNotification!) {
         
         cancelTokenExpirationTimer()
     }
     
-    private func applicationDidBecomeActive(notication: NSNotification!) {
+    @objc private func applicationDidBecomeActive(notication: NSNotification!) {
         
         switch status {
         case .Connected(let service):
@@ -134,7 +134,7 @@ public class Service {
         session.invalidateAndCancel()
     }
     
-    final func get(path: String, completionHandler: Result<AnyObject> -> ()) -> NSURLSessionDataTask {
+    final func get(path: String, completionHandler: AnyObjectResult -> ()) -> NSURLSessionDataTask {
         
         let url = "https://api-gw.it.umich.edu".stringByAppendingPathComponent(path)
         
